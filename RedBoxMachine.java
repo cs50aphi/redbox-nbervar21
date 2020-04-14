@@ -41,13 +41,14 @@ public class RedBoxMachine
       // Complete the method to search for a movie.
       // If placement is -1, then the movie isn't there.
       // Find the index of i if the movie is there.
-      for (DVD movie : dvds.toArray())
+      for (DVD movie : dvds)
       {
          if (movie.getTitle().equals(title))
          {
             return dvds.indexOf(movie);
          }
       }
+      return -1;
    }
 
    /** Returns the titles of all available DVD's in
@@ -59,7 +60,7 @@ public class RedBoxMachine
    {
       // Complete the method to get all available movie titles.
       ArrayList<String> titles = new ArrayList<String>();
-      for (DVD movie : dvds.toArray())
+      for (DVD movie : dvds)
       {
          titles.add(movie.toString());
       }
@@ -75,22 +76,22 @@ public class RedBoxMachine
     */
    public boolean rent(String title)
    {
-      for (DVD movie : dvds.toArray())
+      for (DVD movie : dvds)
       {
          if (movie.getTitle().equals(title))
          {
-            if (movie.getNumCopies() > 1)
+            if (movie.getNumCopies() > 0)
             {
                movie.decrementCopies();
+               if (movie.getNumCopies() == 0)
+               {
+                  dvds.remove(movie);
+               }
                return true;
-            }
-            else
-            {
-               dvds.remove(movie);
-               return false;
             }
          }
       }
+      return false;
    }
 
    /** Allows a customer to return a movie. When the movie is returned, the number
@@ -102,7 +103,7 @@ public class RedBoxMachine
    public DVD returnMovie(String title)
    {
       // Complete the method to return a movie.
-      for (DVD movie : dvds.toArray())
+      for (DVD movie : dvds)
       {
          if (movie.getTitle().equals(title))
          {

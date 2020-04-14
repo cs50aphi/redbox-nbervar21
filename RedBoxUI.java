@@ -15,7 +15,6 @@ public class RedBoxUI
 
       System.out.println("Welcome to Redbox!");
       System.out.println("What can I help you with today?");
-      System.out.println();
 
       while (true)
       {
@@ -42,7 +41,7 @@ public class RedBoxUI
 
             if (rm.rent(title))
             {
-               System.out.println("Successfully rented " + title + ".")
+               System.out.println("Successfully rented " + title + ".");
             }
             else
             {
@@ -74,7 +73,7 @@ public class RedBoxUI
             }
             else
             {
-               System.out.println(title + " is in stock.")
+               System.out.println(title + " is in stock.");
             }
          }
          else if (option == 5)
@@ -93,6 +92,7 @@ public class RedBoxUI
    //Prints all available options to the console.
    public static void printMenu()
    {
+      System.out.println();
       System.out.println("1-List Available Titles");
       System.out.println("2-Rent Movie");
       System.out.println("3-Return Movie");
