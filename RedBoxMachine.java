@@ -41,6 +41,13 @@ public class RedBoxMachine
       // Complete the method to search for a movie.
       // If placement is -1, then the movie isn't there.
       // Find the index of i if the movie is there.
+      for (DVD movie : dvds.toArray())
+      {
+         if (movie.getTitle().equals(title))
+         {
+            return dvds.indexOf(movie);
+         }
+      }
    }
 
    /** Returns the titles of all available DVD's in
@@ -54,7 +61,7 @@ public class RedBoxMachine
       ArrayList<String> titles = new ArrayList<String>();
       for (DVD movie : dvds.toArray())
       {
-         titles.add(movie.getTitle());
+         titles.add(movie.toString());
       }
       return titles;
    }

@@ -21,7 +21,7 @@ public class RedBoxUI
       {
          printMenu();
          option = Integer.parseInt(sn.nextLine());
-         if(option == 1)
+         if (option == 1)
          {
             //Complete the code to List Available Titles.
             ArrayList<String> availableTitles = new ArrayList<String>();
@@ -39,6 +39,15 @@ public class RedBoxUI
             // Complete the code to rent a movie. This code should let the user
             // know if the movie was rented successfully or not (not could occur if
             // the movie they enter is not available).
+
+            if (rm.rent(title))
+            {
+               System.out.println("Successfully rented " + title + ".")
+            }
+            else
+            {
+               System.out.println("We're all out of that movie.");
+            }
          }
          else if (option == 3)
          {
@@ -48,6 +57,8 @@ public class RedBoxUI
             // Complete the code to return a movie. Make sure to include a
             // message after the movie has been returned.
 
+            DVD movie = rm.returnMovie(title);
+            System.out.println("Thank you for returning " + title + "!");
          }
          else if (option == 4)
          {
@@ -57,6 +68,14 @@ public class RedBoxUI
             // Complete the code to search for a movie.  Make sure to include
             // messages that inform the user whether the movie was found or not.
 
+            if (rm.searchForMovie(title) == -1)
+            {
+               System.out.println("That movie is unavailable.");
+            }
+            else
+            {
+               System.out.println(title + " is in stock.")
+            }
          }
          else if (option == 5)
          {
